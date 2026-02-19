@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- عنوان الموقع -->
+  <title>رمضان مبارك | تهنئة خاصة من Ahmed Hany 🌙✨</title>
+  
+  <!-- وصف الموقع (يظهر أسفل العنوان في نتائج البحث) -->
+  <meta name="description" content="أرسل تهنئة رمضانية شخصية من Ahmed Hany لأصدقائك وعائلتك. موقع رمضاني مليء بالهلال والفوانيس 🌙✨">
+
+  <!-- الكلمات المفتاحية -->
+  <meta name="keywords" content="رمضان، تهنئة رمضان، Ahmed Hany، تهنئة خاصة، إيميل رمضان، فوانيس، شهر رمضان 2026">
+
+  <!-- الميتا لتويتر -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="تهنئة خاصة بك من Ahmed Hany 🌙✨">
+  <meta name="twitter:description" content="أرسل تهنئة رمضانية شخصية من Ahmed Hany لأصدقائك وعائلتك">
+  <meta name="twitter:image" content="رابط_الصورة_الرئيسية_للموقع.jpg">
+
+  <!-- الميتا لفيسبوك/Open Graph -->
+  <meta property="og:title" content="تهنئة خاصة بك من Ahmed Hany 🌙✨">
+  <meta property="og:description" content="أرسل تهنئة رمضانية شخصية من Ahmed Hany لأصدقائك وعائلتك">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Scheherazade+New:wght@400;700;900&family=Lora:ital@1&display=swap" rel="stylesheet">
+
+<!-- ══════════════════════════════════════════════════════════
+     EmailJS — حتى ترسل إيميل فعلي من أحمد هاني للزوار
+     الإعداد: https://www.emailjs.com
+     1. أنشئ حساباً مجانياً → أضف خدمة Gmail (a7med.e.cs@gmail.com)
+     2. أنشئ Template بمتغيرات: {{to_name}} {{to_email}} {{ramadan_day}}
+     3. ضع المفاتيح الثلاثة أدناه → غيّر configured إلى true
+══════════════════════════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+const EJS = {
+  serviceId:  'YOUR_SERVICE_ID',
+  templateId: 'YOUR_TEMPLATE_ID',
+  publicKey:  'YOUR_PUBLIC_KEY',
+  configured: false   // ← true بعد إضافة المفاتيح
+};
+</script>
+
+<style>
+:root{
+  --ink:#05071a;
+  --deep:#090e2c;
+  --gold:#f2c240;
+  --gold2:#c48a0e;
+  --amber:#ffaa20;
+  --teal:#00d4b8;
+  --rose:#e85c7a;
+  --plum:#7c3aed;
+  --txt:rgba(255,255,255,.83);
+  --txt2:rgba(255,255,255,.48);
+  --border:rgba(242,194,64,.22);
+  --panel:rgba(255,255,255,.042);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--ink);color:#fff;
+  font-family:'Scheherazade New',serif;
+  min-height:100vh;overflow-x:hidden;direction:rtl;
+}
+
+/* ── CANVAS ── */
+#bg{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+/* ── LIGHT STRING ── */
+.wire-top{position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2) 20%,rgba(255,255,255,.2) 80%,transparent);z-index:6;pointer-events:none;}
+.lights-bar{position:fixed;top:0;left:0;right:0;z-index:6;display:flex;align-items:flex-start;justify-content:space-around;pointer-events:none;}
+.ld{display:flex;flex-direction:column;align-items:center;}
+.lw{width:1.5px;background:rgba(255,255,255,.22);}
+.lb{width:14px;height:18px;border-radius:50% 50% 42% 42%;position:relative;animation:bulb var(--bf,2.2s) ease-in-out infinite alternate;box-shadow:0 0 8px 3px currentColor;}
+.lb::before{content:'';position:absolute;top:3px;left:3px;width:5px;height:6px;border-radius:50%;background:rgba(255,255,255,.5);}
+@keyframes bulb{from{opacity:.5;filter:brightness(.7);}to{opacity:1;filter:brightness(1.6);}}
+
+/* ── FLOATING LANTERNS ── */
+.fl{position:fixed;pointer-events:none;z-index:2;animation:fl var(--d,9s) ease-in-out infinite alternate;filter:drop-shadow(0 0 16px currentColor);}
+@keyframes fl{from{transform:translateY(0) rotate(-4deg);}to{transform:translateY(-32px) rotate(4deg);}}
+
+/* ── DECO ── */
+.dc{position:fixed;pointer-events:none;z-index:2;color:var(--gold);opacity:.55;animation:dc var(--d,7s) ease-in-out infinite alternate;}
+@keyframes dc{from{transform:translateY(0) rotate(0);}to{transform:translateY(-18px) rotate(16deg);}}
+
+/* ══════════ LAYOUT ══════════ */
+main{position:relative;z-index:5;display:flex;flex-direction:column;align-items:center;padding:108px 20px 60px;gap:34px;}
+
+/* ── HEADER ── */
+.hdr{text-align:center;animation:fd .9s ease both;}
+@keyframes fd{from{opacity:0;transform:translateY(-26px);}to{opacity:1;transform:translateY(0);}}
+.hdr-moon{font-size:clamp(3rem,8vw,5.5rem);display:block;animation:ms 18s ease-in-out infinite alternate;filter:drop-shadow(0 0 28px rgba(242,194,64,.7));}
+@keyframes ms{0%{transform:rotate(-7deg);}100%{transform:rotate(7deg);}}
+.hdr-title{font-family:'Scheherazade New',serif;font-size:clamp(2.4rem,8vw,5.5rem);font-weight:900;background:linear-gradient(135deg,var(--gold) 0%,#fffde4 40%,var(--amber) 70%,var(--teal) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:300% 300%;animation:sh 5s ease infinite;line-height:1.15;letter-spacing:3px;}
+@keyframes sh{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
+.hdr-sub{color:var(--txt2);font-size:1.05rem;font-style:italic;letter-spacing:2px;margin-top:8px;}
+.dvd{display:flex;align-items:center;gap:14px;color:var(--gold);font-size:1.3rem;opacity:.6;margin:6px 0;width:100%;max-width:460px;}
+.dvd::before,.dvd::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+
+/* ══════════ CARDS ══════════ */
+.card{background:var(--panel);border:1px solid var(--border);border-radius:24px;backdrop-filter:blur(14px);padding:36px 42px;max-width:620px;width:100%;box-shadow:0 10px 50px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.06);animation:fu .8s ease both;}
+@keyframes fu{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.clbl{font-size:1.25rem;color:var(--gold);text-align:center;margin-bottom:20px;letter-spacing:3px;display:flex;align-items:center;justify-content:center;gap:10px;}
+
+/* inputs */
+input[type=text],input[type=email]{width:100%;padding:13px 19px;background:rgba(255,255,255,.07);border:1.5px solid rgba(242,194,64,.28);border-radius:13px;color:#fff;font-family:'Scheherazade New',serif;font-size:1.1rem;direction:rtl;outline:none;transition:border-color .3s,box-shadow .3s;}
+input::placeholder{color:var(--txt2);}
+input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(242,194,64,.12);}
+.row{display:flex;gap:10px;margin-top:14px;}
+
+/* buttons */
+.btn{padding:13px 22px;background:linear-gradient(135deg,var(--gold2),var(--gold));border:none;border-radius:13px;color:var(--ink);font-family:'Scheherazade New',serif;font-size:1.1rem;font-weight:700;cursor:pointer;white-space:nowrap;transition:transform .2s,box-shadow .2s;}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(242,194,64,.45);}
+.btn:active{transform:translateY(0);}
+.btn-o{background:transparent;border:1.5px solid rgba(255,255,255,.2);border-radius:13px;color:var(--txt);font-family:'Scheherazade New',serif;font-size:1rem;cursor:pointer;padding:11px 16px;transition:all .3s;white-space:nowrap;}
+.btn-o:hover{border-color:var(--gold);color:var(--gold);background:rgba(242,194,64,.07);}
+
+/* greeting */
+#ga{display:none;text-align:center;animation:pi .6s cubic-bezier(.34,1.56,.64,1) both;}
+@keyframes pi{from{opacity:0;transform:scale(.75);}to{opacity:1;transform:scale(1);}}
+.gm{font-family:'Scheherazade New',serif;font-size:clamp(1.7rem,5vw,2.8rem);font-weight:900;background:linear-gradient(135deg,var(--gold),var(--teal),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200%;animation:sh 3s ease infinite;line-height:1.3;margin-bottom:12px;}
+.gs{color:var(--txt2);font-style:italic;font-size:1rem;margin-bottom:18px;}
+
+/* share box */
+.share-box{background:rgba(0,0,0,.28);border:1px solid rgba(242,194,64,.18);border-radius:13px;padding:11px 15px;display:flex;align-items:center;gap:10px;margin-top:14px;direction:ltr;}
+.share-url{flex:1;color:var(--gold);font-size:.82rem;word-break:break-all;text-align:left;font-family:monospace;opacity:.85;direction:ltr;}
+.copy-btn{background:transparent;border:1px solid rgba(242,194,64,.3);border-radius:8px;color:var(--gold);padding:7px 13px;font-size:.85rem;cursor:pointer;white-space:nowrap;font-family:'Scheherazade New',serif;transition:all .25s;}
+.copy-btn:hover{background:rgba(242,194,64,.12);}
+.share-note{color:var(--txt2);font-size:.82rem;margin-top:7px;text-align:center;}
+
+/* ── AHMED CARD ── */
+.ac{background:linear-gradient(145deg,rgba(124,58,237,.14),rgba(0,212,184,.07),rgba(124,58,237,.06));border:1px solid rgba(124,58,237,.35);border-radius:24px;padding:42px 46px;max-width:620px;width:100%;text-align:center;box-shadow:0 0 70px rgba(124,58,237,.1);animation:fu .8s .12s ease both;position:relative;overflow:hidden;}
+.ac::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(242,194,64,.07),transparent 60%);pointer-events:none;}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--plum),var(--teal));padding:5px 20px;border-radius:20px;font-size:.85rem;letter-spacing:3px;margin-bottom:20px;}
+.aq{font-size:clamp(1.5rem,4vw,2.2rem);color:var(--gold);line-height:1.75;margin-bottom:18px;text-shadow:0 0 28px rgba(242,194,64,.3);}
+.ab{color:var(--txt);line-height:2;font-size:1.05rem;}
+.asig{margin-top:20px;color:var(--teal);font-size:1rem;letter-spacing:2px;}
+
+/* ── EMAIL CARD ── */
+.ec{background:var(--panel);border:1px solid rgba(0,212,184,.22);border-radius:24px;padding:34px 42px;max-width:620px;width:100%;text-align:center;animation:fu .8s .22s ease both;}
+.ei{font-size:2.5rem;display:block;margin-bottom:8px;}
+#er{display:none;margin-top:14px;padding:14px 18px;border-radius:12px;font-size:.95rem;line-height:1.75;animation:fu .4s ease both;}
+#er.ok{background:rgba(0,212,184,.1);border:1px solid rgba(0,212,184,.3);color:var(--teal);}
+#er.fail{background:rgba(232,92,122,.1);border:1px solid rgba(232,92,122,.28);color:var(--rose);}
+
+/* ══════════ CRESCENT MOON COUNTER ══════════ */
+.ms{text-align:center;animation:fu .8s .32s ease both;width:100%;max-width:680px;}
+.ms-title{font-size:1.4rem;color:var(--gold);letter-spacing:4px;margin-bottom:30px;}
+
+.cstage{position:relative;display:inline-flex;align-items:center;justify-content:center;width:340px;height:340px;margin-bottom:32px;}
+.cglow{position:absolute;inset:0;border-radius:50%;background:radial-gradient(ellipse at 55% 45%,rgba(242,194,64,.22),transparent 65%);animation:cp 4s ease-in-out infinite alternate;pointer-events:none;}
+@keyframes cp{from{opacity:.6;transform:scale(.95);}to{opacity:1;transform:scale(1.05);}}
+.csvg{width:300px;height:300px;filter:drop-shadow(0 0 26px rgba(242,194,64,.8)) drop-shadow(0 0 55px rgba(242,194,64,.4));}
+
+.mi{position:absolute;left:55%;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:2px;pointer-events:none;}
+.mn{font-family:'Scheherazade New',serif;font-weight:900;font-size:3.2rem;color:var(--ink);line-height:1;}
+.ml{font-size:.72rem;color:rgba(6,9,22,.7);letter-spacing:1px;font-weight:700;}
+.ms2{font-size:.75rem;color:rgba(6,9,22,.6);font-style:italic;margin-top:1px;}
+
+/* Countdown boxes */
+.cdg{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;width:100%;max-width:510px;margin:0 auto 20px;}
+.cdb{position:relative;overflow:hidden;background:linear-gradient(160deg,rgba(242,194,64,.13),rgba(242,194,64,.04));border:1px solid rgba(242,194,64,.32);border-radius:18px;padding:20px 8px 16px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.35);transition:transform .2s;}
+.cdb:hover{transform:translateY(-3px);}
+.cdb::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.75;}
+.cdn{display:block;font-family:'Cinzel Decorative',cursive;font-size:2.3rem;font-weight:700;color:var(--gold);line-height:1;text-shadow:0 0 18px rgba(242,194,64,.55);}
+.cdl{display:block;font-size:.82rem;color:var(--txt2);letter-spacing:2px;margin-top:8px;}
+
+/* Progress */
+.pw{width:100%;max-width:510px;margin:0 auto;background:rgba(255,255,255,.07);border-radius:20px;height:9px;overflow:hidden;border:1px solid rgba(242,194,64,.18);}
+.pf{height:100%;background:linear-gradient(90deg,var(--teal),var(--gold),var(--amber));border-radius:20px;transition:width 1s ease;box-shadow:0 0 10px rgba(242,194,64,.5);}
+.pl{display:flex;justify-content:space-between;color:var(--txt2);font-size:.8rem;margin-top:7px;margin-bottom:22px;max-width:510px;width:100%;margin-left:auto;margin-right:auto;}
+
+.mreg{display:inline-block;margin-top:14px;padding:7px 22px;border-radius:20px;background:rgba(242,194,64,.1);border:1px solid rgba(242,194,64,.26);color:var(--gold);font-size:.9rem;letter-spacing:2px;}
+.mev{color:var(--gold);font-size:1.1rem;letter-spacing:2px;margin-bottom:7px;}
+
+/* ── FOOTER ── */
+footer{position:relative;z-index:5;text-align:center;padding:26px 20px;border-top:1px solid rgba(242,194,64,.12);color:rgba(255,255,255,.38);font-size:.85rem;letter-spacing:2px;font-family:'Lora',serif;}
+footer span{color:var(--gold);}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(90px);background:var(--teal);color:var(--ink);padding:12px 26px;border-radius:14px;font-family:'Scheherazade New',serif;font-size:1rem;font-weight:700;z-index:999;transition:transform .45s cubic-bezier(.34,1.56,.64,1);pointer-events:none;}
+.toast.show{transform:translateX(-50%) translateY(0);}
+
+/* RESPONSIVE */
+@media(max-width:520px){
+  .card,.ac,.ec{padding:24px 16px;}
+  .row{flex-direction:column;}
+  .cdg{grid-template-columns:repeat(2,1fr);}
+  .cstage{width:280px;height:280px;}
+  .csvg{width:240px;height:240px;}
+  .mn{font-size:2.5rem;}
+}
+</style>
+</head>
+<body>
+
+<canvas id="bg"></canvas>
+<div class="wire-top"></div>
+<div class="lights-bar" id="lb"></div>
+
+<!-- SVG Lanterns -->
+<svg class="fl" style="left:2%;top:22%;color:#f2c240;--d:8s;" width="36" height="60" viewBox="0 0 36 60"><rect x="8" y="8" width="20" height="38" rx="6" fill="rgba(242,194,64,.12)" stroke="#f2c240" stroke-width="1.5"/><rect x="14" y="2" width="8" height="8" rx="2" fill="#c48a0e"/><rect x="16" y="46" width="4" height="10" rx="2" fill="#c48a0e"/><line x1="8" y1="18" x2="28" y2="18" stroke="#f2c240" stroke-width=".8" opacity=".5"/><line x1="8" y1="28" x2="28" y2="28" stroke="#f2c240" stroke-width=".8" opacity=".5"/><line x1="8" y1="38" x2="28" y2="38" stroke="#f2c240" stroke-width=".8" opacity=".5"/><ellipse cx="18" cy="27" rx="5" ry="6" fill="rgba(242,194,64,.28)"/></svg>
+<svg class="fl" style="right:3%;top:28%;color:#e85c7a;--d:11s;animation-delay:-3s;" width="32" height="54" viewBox="0 0 36 60"><rect x="8" y="8" width="20" height="38" rx="6" fill="rgba(232,92,122,.12)" stroke="#e85c7a" stroke-width="1.5"/><rect x="14" y="2" width="8" height="8" rx="2" fill="#b03050"/><rect x="16" y="46" width="4" height="10" rx="2" fill="#b03050"/><line x1="8" y1="18" x2="28" y2="18" stroke="#e85c7a" stroke-width=".8" opacity=".5"/><line x1="8" y1="30" x2="28" y2="30" stroke="#e85c7a" stroke-width=".8" opacity=".5"/><ellipse cx="18" cy="27" rx="5" ry="6" fill="rgba(232,92,122,.28)"/></svg>
+<svg class="fl" style="left:5%;top:60%;color:#00d4b8;--d:10s;animation-delay:-5s;" width="28" height="48" viewBox="0 0 36 60"><rect x="8" y="8" width="20" height="38" rx="6" fill="rgba(0,212,184,.1)" stroke="#00d4b8" stroke-width="1.5"/><rect x="14" y="2" width="8" height="8" rx="2" fill="#009980"/><rect x="16" y="46" width="4" height="10" rx="2" fill="#009980"/><line x1="8" y1="22" x2="28" y2="22" stroke="#00d4b8" stroke-width=".8" opacity=".5"/><line x1="8" y1="34" x2="28" y2="34" stroke="#00d4b8" stroke-width=".8" opacity=".5"/><ellipse cx="18" cy="27" rx="5" ry="6" fill="rgba(0,212,184,.24)"/></svg>
+<svg class="fl" style="right:4%;top:62%;color:#7c3aed;--d:7s;animation-delay:-2s;" width="30" height="50" viewBox="0 0 36 60"><rect x="8" y="8" width="20" height="38" rx="6" fill="rgba(124,58,237,.12)" stroke="#7c3aed" stroke-width="1.5"/><rect x="14" y="2" width="8" height="8" rx="2" fill="#5b21b6"/><rect x="16" y="46" width="4" height="10" rx="2" fill="#5b21b6"/><line x1="8" y1="20" x2="28" y2="20" stroke="#7c3aed" stroke-width=".8" opacity=".5"/><line x1="8" y1="30" x2="28" y2="30" stroke="#7c3aed" stroke-width=".8" opacity=".5"/><ellipse cx="18" cy="27" rx="5" ry="6" fill="rgba(124,58,237,.28)"/></svg>
+
+<div class="dc" style="left:7%;top:40%;--d:8s;font-size:1.8rem;">✦</div>
+<div class="dc" style="right:7%;top:50%;--d:6s;font-size:1.2rem;color:var(--teal);">✦</div>
+<div class="dc" style="left:4%;top:75%;--d:9s;font-size:1.4rem;color:var(--rose);">❋</div>
+<div class="dc" style="right:5%;top:78%;--d:7s;font-size:1rem;">❋</div>
+
+<!-- ═════════════ MAIN ═════════════ -->
+<main>
+
+  <!-- HEADER -->
+  <header class="hdr">
+    <span class="hdr-moon">🌙</span>
+    <h1 class="hdr-title">رمضان مبارك</h1>
+    <p class="hdr-sub">شهر الرحمة والبركة والغفران</p>
+    <div class="dvd" style="margin:14px auto;">✦ ☽ ✦</div>
+  </header>
+
+  <!-- NAME CARD -->
+  <div class="card" style="animation-delay:.08s;">
+    <div class="clbl">🌙 أدخل اسمك</div>
+    <input type="text" id="nameInput" placeholder="اكتب اسمك هنا…" autocomplete="off"/>
+    <div class="row">
+      <button class="btn" onclick="greetUser()"> 🌙 تهنئني ✨  </button>
+    </div>
+
+    <div id="ga" style="margin-top:26px;">
+      <div class="gm" id="gt"></div>
+      <div class="gs">نتمنى لك شهراً مباركاً مليئاً بالسعادة والسلام 🌙</div>
+
+      <!-- Share link — generated purely in JavaScript -->
+      <div class="share-box">
+        <button class="copy-btn" onclick="copyLink()">نسخ 📋</button>
+        <span class="share-url" id="shareUrl">…</span>
+        <span style="color:rgba(242,194,64,.6);font-size:.82rem;white-space:nowrap;">🔗 رابطك:</span>
+      </div>
+      <p class="share-note">أرسل هذا الرابط لأصدقائك — سيرون تهنئتهم الخاصة فور فتحه!</p>
+    </div>
+  </div>
+
+  <!-- AHMED HANY GREETING -->
+  <div class="ac">
+    <div class="badge">✦ رسالة خاصة من Ahmed Hany ✦</div>
+    <div class="aq">
+      "اللهم بلّغنا رمضان وأعنّا على صيامه وقيامه<br>وتقبّل منّا صالح الأعمال"
+    </div>
+    <p class="ab">
+      رمضان مبارك وكل عام وأنتم بخير 🌙<br><br>
+      في هذا الشهر الكريم المبارك، أتمنى لكم جميعاً أن تمتلئ قلوبكم بالسكينة والطمأنينة، وأن تُقبل صلواتكم وصيامكم وأدعيتكم. رمضان ليس فقط شهر امتناع عن الطعام والشراب، بل هو موسم لتجديد الروح وتقوية الإيمان والاقتراب من الله. لتكن هذه الأيام المباركة بداية جديدة تحملون فيها كل ما هو جميل وخير.
+      <br><br>
+      كل عام وأنتم في صحة وعافية ومحبة ♥
+    </p>
+    <div class="asig">— بكل المحبة والدعاء، Ahmed Hany 🌙</div>
+    <p class="marriage-text">
+    ادعولي أتجوز 💜🙂
+</p>
+
+<style>
+.marriage-text{
+    color: #6a0dad;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 12px 18px;
+    border-radius: 12px;
+    display: inline-block;
+    box-shadow: 0 5px 15px rgba(106, 13, 173, 0.4);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.marriage-text:hover{
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(106, 13, 173, 0.6);
+}
+</style>
+  </div>
+
+  <!-- EMAIL CARD -->
+  <div class="ec">
+    <span class="ei">💌</span>
+    <div class="clbl">احصل على تهنئة شخصية</div>
+    <p style="color:var(--txt2);font-size:1rem;margin-bottom:18px;">
+      أدخل بريدك الإلكتروني وسيصلك رسالة رمضانية دافئة من أحمد هاني
+    </p>
+    <input type="email" id="emailInput" placeholder="بريدك الإلكتروني…" dir="ltr" style="text-align:left;"/>
+    <div class="row">
+      <button class="btn" onclick="sendEmail()">أرسل التهنئة ✉️</button>
+    </div>
+    <div id="er"></div>
+  </div>
+
+  <!-- ══════════ CRESCENT MOON COUNTER ══════════ -->
+  <div class="ms">
+    <div class="ms-title">✦ العد التنازلي لرمضان المبارك ✦</div>
+
+    <div class="cstage">
+      <div class="cglow"></div>
+      <!-- Crescent SVG -->
+      <svg class="csvg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="mg" cx="36%" cy="36%" r="65%">
+            <stop offset="0%"   stop-color="#fffde4"/>
+            <stop offset="30%"  stop-color="#f2c240"/>
+            <stop offset="65%"  stop-color="#c88a10"/>
+            <stop offset="100%" stop-color="#7a4e00"/>
+          </radialGradient>
+          <radialGradient id="mh" cx="40%" cy="38%">
+            <stop offset="0%" stop-color="rgba(255,255,220,.22)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </radialGradient>
+          <mask id="mcm">
+            <circle cx="148" cy="150" r="126" fill="white"/>
+            <circle cx="193" cy="126" r="108" fill="black"/>
+          </mask>
+          <filter id="mf" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="5" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <circle cx="148" cy="150" r="126" fill="url(#mg)" mask="url(#mcm)" filter="url(#mf)"/>
+        <circle cx="148" cy="150" r="126" fill="url(#mh)" mask="url(#mcm)"/>
+        <!-- decorative stars -->
+        <text x="50"  y="56"  font-size="22" fill="#fffde4" opacity=".85">✦</text>
+        <text x="248" y="76"  font-size="15" fill="#fffde4" opacity=".7">★</text>
+        <text x="258" y="208" font-size="11" fill="#f2c240" opacity=".65">✦</text>
+        <text x="44"  y="224" font-size="17" fill="#fffde4" opacity=".75">★</text>
+        <text x="72"  y="82"  font-size="10" fill="#fffde4" opacity=".5">✦</text>
+        <text x="240" y="180" font-size="9"  fill="#fffde4" opacity=".5">★</text>
+      </svg>
+
+      <!-- Day number on the moon face -->
+      <div class="mi">
+        <span class="mn" id="moonNum">--</span>
+        <span class="ml" id="moonLbl">يوم رمضان</span>
+        <span class="ms2" id="moonSub">من ٣٠</span>
+      </div>
+    </div>
+
+    <!-- Countdown boxes -->
+    <div class="cdg">
+      <div class="cdb"><span class="cdn" id="cD">--</span><span class="cdl">أيام</span></div>
+      <div class="cdb"><span class="cdn" id="cH">--</span><span class="cdl">ساعات</span></div>
+      <div class="cdb"><span class="cdn" id="cM">--</span><span class="cdl">دقائق</span></div>
+      <div class="cdb"><span class="cdn" id="cS">--</span><span class="cdl">ثواني</span></div>
+    </div>
+
+    <!-- Progress -->
+    <div class="pw"><div class="pf" id="pf" style="width:0%"></div></div>
+    <div class="pl">
+      <span id="pEnd">عيد الفطر 🌙</span>
+      <span id="pPct">٠٪</span>
+      <span>١ رمضان ☽</span>
+    </div>
+
+    <div class="mev" id="mev"></div>
+    <div class="mreg" id="mreg">🌍 جارٍ تحديد موقعك…</div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="dvd" style="max-width:260px;margin:0 auto 12px;">✦ ☽ ✦</div>
+  Created with 🌙 &amp; ✨ by <span>Ahmed Hany</span>
+</footer>
+
+<div class="toast" id="toast">تم النسخ 🌙</div>
+
+<!-- ═══════════════════════════════ SCRIPTS ═══════════════════════════════ -->
+<script>
+/* ── 1. CANVAS STARFIELD ── */
+(function(){
+  const c=document.getElementById('bg'),ctx=c.getContext('2d');
+  let W,H,stars=[];
+  function resize(){
+    W=c.width=innerWidth;H=c.height=innerHeight;
+    stars=Array.from({length:220},()=>({
+      x:Math.random()*W,y:Math.random()*H,
+      r:.3+Math.random()*2.1,
+      a:Math.random(),
+      da:(.003+Math.random()*.009)*(Math.random()<.5?1:-1),
+      c:Math.random()<.14?'rgba(0,212,184,':'rgba(255,253,220,'
+    }));
+  }
+  resize();window.addEventListener('resize',resize);
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    // bg
+    let g=ctx.createRadialGradient(W*.5,H*.5,60,W*.5,H*.5,H);
+    g.addColorStop(0,'#0f1535');g.addColorStop(.5,'#080c24');g.addColorStop(1,'#040712');
+    ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+    // top glow
+    let t=ctx.createRadialGradient(W*.5,-60,10,W*.5,40,320);
+    t.addColorStop(0,'rgba(242,194,64,.07)');t.addColorStop(1,'transparent');
+    ctx.fillStyle=t;ctx.fillRect(0,0,W,H);
+    // stars
+    stars.forEach(s=>{
+      s.a+=s.da;if(s.a<=0||s.a>=1)s.da*=-1;
+      ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fillStyle=s.c+s.a.toFixed(2)+')';ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ── 2. LIGHT STRING ── */
+(function(){
+  const bar=document.getElementById('lb');
+  const cols=['#ff6b6b','#f2c240','#00d4b8','#7c3aed','#ff9f43','#48dbfb','#ff6b81','#2ecc71','#e056fd'];
+  const n=Math.max(10,Math.floor(innerWidth/56));
+  for(let i=0;i<n;i++){
+    const d=document.createElement('div');d.className='ld';
+    const w=document.createElement('div');w.className='lw';
+    w.style.height=(26+Math.random()*56)+'px';
+    const b=document.createElement('div');b.className='lb';
+    const cl=cols[i%cols.length];
+    b.style.cssText=`background:${cl};color:${cl};--bf:${1.3+Math.random()*2.8}s;animation-delay:${Math.random()*2}s;`;
+    d.appendChild(w);d.appendChild(b);bar.appendChild(d);
+  }
+})();
+
+/* ── 3. AUTO GREET FROM URL ── */
+window.addEventListener('DOMContentLoaded',()=>{
+  const n=new URLSearchParams(location.search).get('name');
+  if(n){document.getElementById('nameInput').value=n;greetUser(true);}
+});
+
+/* ── 4. GREET + SHARE LINK (pure JavaScript) ── */
+function buildShareURL(name){
+  // Build the personalised link using JavaScript — works even on file:// or any host
+  const base=location.origin+location.pathname;
+  return base+'?name='+encodeURIComponent(name);
+}
+
+function greetUser(auto){
+  const name=document.getElementById('nameInput').value.trim();
+  if(!name){document.getElementById('nameInput').focus();return;}
+  const url=buildShareURL(name);
+  document.getElementById('gt').textContent='رمضان مبارك، '+name+'! 🌙';
+  document.getElementById('shareUrl').textContent=url;
+  const a=document.getElementById('ga');
+  a.style.display='block';
+  if(!auto){a.style.animation='none';void a.offsetHeight;a.style.animation='';}
+}
+
+// Update link live while typing
+document.getElementById('nameInput').addEventListener('input',()=>{
+  const name=document.getElementById('nameInput').value.trim();
+  const a=document.getElementById('ga');
+  if(name&&a.style.display!=='none'){
+    document.getElementById('gt').textContent='رمضان مبارك، '+name+'! 🌙';
+    document.getElementById('shareUrl').textContent=buildShareURL(name);
+  }
+});
+document.getElementById('nameInput').addEventListener('keydown',e=>{if(e.key==='Enter')greetUser();});
+
+function copyLink(){
+  const url=document.getElementById('shareUrl').textContent;
+  if(!url||url==='…'){return showToast('أدخل اسمك أولاً 🌙');}
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(url).then(()=>showToast('تم نسخ الرابط! شاركه مع أصدقائك 🌙'));
+  } else {
+    // older browser fallback
+    const ta=document.createElement('textarea');ta.value=url;
+    document.body.appendChild(ta);ta.select();document.execCommand('copy');
+    document.body.removeChild(ta);showToast('تم نسخ الرابط! 🌙');
+  }
+}
+
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3200);
+}
+
+/* ── 5. EMAIL — EmailJS → Gmail compose fallback ── */
+function sendEmail(){
+  window.open("https://docs.google.com/forms/d/e/1FAIpQLSdOwtLs2KwguksWDu-QXbokYucmna2ujtjqtQCRCDBwynNu0g/viewform?usp=publish-editor", "_blank");
+}
+
+function openGmailFallback(toEmail,name,day,er){
+  const subj=encodeURIComponent('رمضان مبارك من أحمد هاني 🌙');
+  const body=encodeURIComponent(
+'السلام عليكم ورحمة الله وبركاته '+name+'،\n\n'+
+'رمضان مبارك وكل عام وأنت بخير 🌙✨\n\n'+
+'في هذا اليوم المبارك (اليوم '+day+' من رمضان الكريم)، أتقدم إليك بأحر التهاني وأطيب الأمنيات.\n\n'+
+'أسأل الله العظيم أن يتقبل منك صيامك وقيامك وصالح أعمالك، وأن يجعل هذا الشهر الكريم سبباً في رفع درجاتك وغفران ذنوبك.\n\n'+
+'تقبّل الله منا ومنكم، وكل عام وأنتم بخير ♥\n\n'+
+'مع كل المحبة والدعاء،\nأحمد هاني 🌙\na7med.e.cs@gmail.com'
+  );
+  // Open Gmail compose pre-addressed to the visitor
+  window.open('https://mail.google.com/mail/?view=cm&to='+encodeURIComponent(toEmail)+'&su='+subj+'&body='+body,'_blank');
+  er.className='ok';er.style.display='block';
+  er.innerHTML='✅ تم فتح Gmail لإرسال التهنئة إلى <strong>'+toEmail+'</strong> 📬<br>'+
+    '<small style="opacity:.7">إذا لم يفتح Gmail، <a href="mailto:'+toEmail+'?subject='+subj+'&body='+body+'" style="color:var(--teal)">اضغط هنا</a></small>';
+}
+
+document.getElementById('emailInput').addEventListener('keydown',e=>{if(e.key==='Enter')sendEmail();});
+
+/* ── 6. HIJRI CALENDAR COUNTDOWN (JavaScript) ──
+   Regional Ramadan 1447H dates based on Hijri moon sighting traditions:
+   • Saudi/Gulf  → Umm al-Qura: Ramadan 1 = 18 Feb 2026
+   • Egypt/Levant/Maghreb/Turkey/most world → 19 Feb 2026
+   • South Asia (Pak/Ban/India) → 19-20 Feb 2026
+   • SE Asia (Indon/Malaysia) → 20 Feb 2026
+*/
+function getRegion(){
+  const tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';
+  if(/Riyadh|Kuwait|Qatar|Bahrain|Muscat|Dubai|Abu_Dhabi/.test(tz))
+    return{name:'السعودية والخليج 🇸🇦',method:'أم القرى',rs:new Date('2026-02-18T00:00:00'),eid:new Date('2026-03-20T00:00:00'),total:30};
+  if(/Cairo/.test(tz))
+    return{name:'مصر 🇪🇬',method:'الحساب الفلكي',rs:new Date('2026-02-19T00:00:00'),eid:new Date('2026-03-21T00:00:00'),total:30};
+  if(/Amman|Beirut|Damascus|Jerusalem/.test(tz))
+    return{name:'بلاد الشام 🌙',method:'الرؤية الهلالية',rs:new Date('2026-02-19T00:00:00'),eid:new Date('2026-03-21T00:00:00'),total:30};
+  if(/Baghdad/.test(tz))
+    return{name:'العراق 🇮🇶',method:'الرؤية الهلالية',rs:new Date('2026-02-19T00:00:00'),eid:new Date('2026-03-21T00:00:00'),total:30};
+  if(/Casablanca|El_Aaiun/.test(tz))
+    return{name:'المغرب 🇲🇦',method:'الرؤية الهلالية',rs:new Date('2026-02-19T00:00:00'),eid:new Date('2026-03-21T00:00:00'),total:30};
+  if(/Algiers/.test(tz))
+    return{name:'الجزائر 🇩🇿',method:'الرؤية الهلالية',rs:new Date('2026-02-19T00:00:00'),eid:new Date('2026-03-21T00:00:00'),total:30};
+  if(/Tunis/.test(tz))
+    return{name:'تونس 🇹🇳',method:'الرؤية الهلالية',rs:new Date('2026-02-19T00:00:00'),eid:new Date('2026-03-21T00:00:00'),total:30};
+  if(/Tripoli/.test(tz))
+    return{name:'ليبيا 🇱🇾',method:'الرؤية الهلالية',rs:new Date('2026-02-19T00:00:00'),eid:new Date('2026-03-21T00:00:00'),total:30};
+  if(/Khartoum/.test(tz))
+    return{name:'السودان 🇸🇩',method:'الرؤية الهلالية',rs:new Date('2026-02-19T00:00:00'),eid:new Date('2026-03-21T00:00:00'),total:30};
+  if(/Istanbul/.test(tz))
+    return{name:'تركيا 🇹🇷',method:'الرؤية الهلالية',rs:new Date('2026-02-19T00:00:00'),eid:new Date('2026-03-21T00:00:00'),total:30};
+  if(/Karachi|Kabul/.test(tz))
+    return{name:'باكستان/أفغانستان 🌙',method:'الرؤية الهلالية',rs:new Date('2026-02-20T00:00:00'),eid:new Date('2026-03-21T00:00:00'),total:29};
+  if(/Dhaka|Kolkata|Calcutta/.test(tz))
+    return{name:'جنوب آسيا 🌙',method:'الرؤية الهلالية',rs:new Date('2026-02-20T00:00:00'),eid:new Date('2026-03-22T00:00:00'),total:30};
+  if(/Jakarta|Makassar|Jayapura|Kuala_Lumpur/.test(tz))
+    return{name:'جنوب شرق آسيا 🌙',method:'الرؤية الهلالية',rs:new Date('2026-02-20T00:00:00'),eid:new Date('2026-03-22T00:00:00'),total:30};
+  return{name:'منطقتك 🌍',method:'الرؤية الهلالية',rs:new Date('2026-02-19T00:00:00'),eid:new Date('2026-03-21T00:00:00'),total:30};
+}
+
+function getRamadanInfo(){
+  const r=getRegion(),now=new Date();
+  const dayNum=Math.max(0,Math.floor((now-r.rs)/86400000)+1);
+  return{...r,dayNum,now};
+}
+
+// Convert western digits to Arabic-Indic
+function ar(n){return String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);}
+function p2(n){return String(n).padStart(2,'0');}
+
+function updateCounter(){
+  const{rs,eid,total,dayNum,name,method,now}=getRamadanInfo();
+  const beforeR=now<rs, afterEid=now>=eid;
+
+  if(afterEid){
+    document.getElementById('moonNum').textContent='🎊';
+    document.getElementById('moonLbl').textContent='عيد مبارك';
+    document.getElementById('moonSub').textContent='تقبّل الله منا ومنكم';
+    ['cD','cH','cM','cS'].forEach(id=>document.getElementById(id).textContent='٠٠');
+    document.getElementById('mev').textContent='عيد الفطر المبارك 🎉';
+    document.getElementById('mreg').textContent='🎊 '+name;
+    document.getElementById('pf').style.width='100%';
+    document.getElementById('pPct').textContent='١٠٠٪';
+    return;
+  }
+
+  const target=beforeR?rs:eid;
+  const diff=Math.max(0,target-now);
+  const dd=Math.floor(diff/86400000);
+  const hh=Math.floor((diff%86400000)/3600000);
+  const mm=Math.floor((diff%3600000)/60000);
+  const ss=Math.floor((diff%60000)/1000);
+
+  document.getElementById('cD').textContent=ar(p2(dd));
+  document.getElementById('cH').textContent=ar(p2(hh));
+  document.getElementById('cM').textContent=ar(p2(mm));
+  document.getElementById('cS').textContent=ar(p2(ss));
+
+  if(beforeR){
+    document.getElementById('moonNum').textContent='☽';
+    document.getElementById('moonLbl').textContent='قادم قريباً';
+    document.getElementById('moonSub').textContent='في انتظار الهلال';
+    document.getElementById('mev').textContent='حتى بداية رمضان';
+    document.getElementById('pf').style.width='0%';
+    document.getElementById('pPct').textContent='٠٪';
+  } else {
+    const d=Math.min(dayNum,total);
+    document.getElementById('moonNum').textContent=ar(d);
+    document.getElementById('moonLbl').textContent='اليوم';
+    document.getElementById('moonSub').textContent='من '+ar(total)+' يوماً';
+    document.getElementById('mev').textContent='حتى عيد الفطر المبارك';
+    const pct=Math.min(100,Math.round(d/total*100));
+    document.getElementById('pf').style.width=pct+'%';
+    document.getElementById('pPct').textContent=ar(pct)+'٪';
+  }
+
+  document.getElementById('mreg').textContent='🌙 '+name+' — '+method;
+}
+
+updateCounter();
+setInterval(updateCounter,1000);
+</script>
+</body>
+</html>
